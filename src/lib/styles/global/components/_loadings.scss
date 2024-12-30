@@ -1,0 +1,7 @@
+@use './functions';
+
+.icon{
+    &__3-dots-scale{
+        mask: url(functions.iconsLoad("3-dots-scale")) no-repeat center;
+    }
+}

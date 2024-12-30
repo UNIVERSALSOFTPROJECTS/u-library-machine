@@ -1,0 +1,57 @@
+@use './placeholder';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body{
+    user-select: none;
+    -webkit-user-select: none;
+    overscroll-behavior: none;
+    // touch-action: none;// block scroll behavor in safari
+    
+}
+
+body,p,ul {
+    margin: 0;
+}
+
+p,b,span,a,li *,button{ //default size safari
+    line-height: 1;
+    -webkit-overflow-scrolling: none; // block scroll behavor in safari
+}
+
+i{
+    display: block;
+}
+
+img,picture,source{
+    user-select: none;
+    touch-action: none;
+    -webkit-user-drag: none;//desactive drag
+    -webkit-touch-callout: none; //descative contextMenu safari
+    pointer-events: none; //evita que selecciones una imagen en mobile
+}
+
+
+
+:focus, :focus-visible{
+    outline: 0;
+}
+
+.btn{
+    @extend %button;
+    &.transparent{
+        background: transparent;
+    }
+}
+.ipt{
+    @extend %input;
+}
+.icon{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+}

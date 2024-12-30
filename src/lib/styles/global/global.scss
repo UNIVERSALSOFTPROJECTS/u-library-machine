@@ -1,0 +1,22 @@
+@use './components/default' as *;
+@use './components/variables';
+@use './components/loadings';
+@use './components/mixins/login.mixin' as mixins;
+
+
+body{
+    font-family: variables.$g-font-family;
+    font-size: variables.$g-font-size;
+}
+div{//esto es para comenzar, antes ers *
+    color: variables.$g-color-theme;
+}
+
+.machine{
+    background: variables.$body-background;
+    align-content: center;
+    height: 100vh;
+}
+
+@include mixins.login($primary-color:#30a5ff,$width-image:10rem,$text-color: variables.$g-color-theme);
+
