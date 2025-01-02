@@ -23,9 +23,6 @@ p,b,span,a,li *,button{ //default size safari
     -webkit-overflow-scrolling: none; // block scroll behavor in safari
 }
 
-i{
-    display: block;
-}
 
 img,picture,source{
     user-select: none;
@@ -35,11 +32,17 @@ img,picture,source{
     pointer-events: none; //evita que selecciones una imagen en mobile
 }
 
-
-
 :focus, :focus-visible{
     outline: 0;
 }
+
+.icon{
+    display: block;
+    background: #fff;
+    height: 100%;
+    width: 100%;
+}
+
 
 .btn{
     @extend %button;
@@ -49,9 +52,4 @@ img,picture,source{
 }
 .ipt{
     @extend %input;
-}
-.icon{
-    background: #fff;
-    height: 100%;
-    width: 100%;
 }

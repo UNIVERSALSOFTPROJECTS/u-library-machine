@@ -1,7 +1,7 @@
-@use './components/default' as *;
-@use './components/variables';
-@use './components/loadings';
-@use './components/mixins/login.mixin' as mixins;
+@use '../components/default' as *;
+@use '../components/variables';
+@use '../components/loadings';
+@use '../components/mixins/login.mixin' as mixins;
 
 
 body{
@@ -18,5 +18,7 @@ div{//esto es para comenzar, antes ers *
     height: 100vh;
 }
 
-@include mixins.login($primary-color:#30a5ff,$width-image:10rem,$text-color: variables.$g-color-theme);
-
+.login{
+    @include mixins.login($primary-color:#30a5ff,$width-image:10rem,$text-color: variables.$g-color-theme);
+    @include mixins.autoserviceLogin($background-body: variables.$body-background,$primary-color:#30a5ff, $size-icon: 10rem);
+}

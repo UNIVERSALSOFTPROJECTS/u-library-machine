@@ -16,6 +16,7 @@ export default{
             ORG: "DJTH",
             domain: "https://machinevlt.shop/",
             currency:'USD',
+            platform:'Dajaratech',
             ...commonConfig,
         });
     }
