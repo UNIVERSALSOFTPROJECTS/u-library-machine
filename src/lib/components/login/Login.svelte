@@ -1,14 +1,14 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-	import UserService from '$lib/services/user.service';
+	import { onMount } from 'svelte';
+	import {userService} from '$lib/services/user.service';
 	import { sessionUser } from '$lib/stores/user.store';
 	import { reloadPage } from '$lib/utils/global.util';
-    import { baseUrl } from '$lib/utils/assets.util';
-    import { getConfig } from '$lib/configService';
+	import { baseUrl } from '$lib/utils/assets.util';
+	import { getConfig } from '$lib/configService';
 
-    const config = getConfig(); 
+	const config = getConfig();
 
-    let platform = config.platform;
+	let platform = config.platform;
 	let username: string = '';
 	let password: string = '';
 	let isLoginUserLoading: boolean = false;
@@ -18,13 +18,13 @@
 	let isAutoserviceError: boolean = false;
 	let autoserviceMessageError: string = 'Ocurrio un error, contactese con soporte';
 	let autoLoginTimer: NodeJS.Timeout;
-    let typeFormatImageLogo:string = "png";
+	let typeFormatImageLogo: string = 'png';
 
 	const loginUser = async () => {
 		if (!username || !password) return alert('todos los campos son obligatorios');
 		try {
 			isLoginUserLoading = true;
-			let userData = await UserService.login(username, password);
+			let userData = await userService.login(username, password);
 			sessionUser.set(userData);
 			if (isSavedUser)
 				localStorage.setItem('savedUser', `{"user":"${username}", "pass":"${password}"}`);
@@ -58,7 +58,7 @@
 		}
 	};
 
-    const handleImageLogoError = () => typeFormatImageLogo = "gif";
+	const handleImageLogoError = () => (typeFormatImageLogo = 'gif');
 
 	$: deleteSavedUser(isSavedUser);
 
@@ -75,8 +75,8 @@
 			);
 		}
 	});
-
 </script>
+
 <!-- {#if isAutoservice} -->
 {#if isAutoservice}
 	<div class="login__autoservice">
@@ -88,7 +88,7 @@
 			</div>
 		{:else}
 			<div class="login__autoservice--loading">
-      <i class="icon icon__blocks-wave"></i>
+				<i class="icon icon__blocks-wave"></i>
 				<p>Cargando...</p>
 			</div>
 		{/if}
@@ -100,7 +100,7 @@
 		class="login__logo"
 		src="{baseUrl}/{platform}/logo.{typeFormatImageLogo}"
 		alt="logo-login"
-        onerror={handleImageLogoError}
+		onerror={handleImageLogoError}
 	/>
 	<div></div>
 	<form class="login__form">

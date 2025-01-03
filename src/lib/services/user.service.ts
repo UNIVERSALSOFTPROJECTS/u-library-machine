@@ -4,7 +4,7 @@ import { getConfig, getHeaders } from "$lib/configService";
 const conf = getConfig();
 const headers = getHeaders();
 
-const UserService = (() => {
+export const userService = (() => {
     const login = async (username: string, password: string) =>  {
         let url = { username, password, org: conf.ORG };
         const response = await axios.post(`${conf.API}/login`, url, { headers });
@@ -17,5 +17,3 @@ const UserService = (() => {
 
     return { login, getBalance }
 })();
-
-export default UserService;
