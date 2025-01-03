@@ -2,6 +2,9 @@
 	"name": "u-library-machine",
 	"version": "0.0.1",
 	"type": "module",
+	"files": [
+		"src/lib"
+	],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
