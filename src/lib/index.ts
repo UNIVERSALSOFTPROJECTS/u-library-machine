@@ -1,1 +1,1 @@
-export {default as Login} from './components/login/Login.svelte';
+export {default as Login} from '$lib/components/login/Login.svelte';
